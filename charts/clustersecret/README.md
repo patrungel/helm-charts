@@ -18,6 +18,7 @@ No configuration is required, the defaults are sufficient to run the operator.
 
 The following options are supported:
 
+| Key                                 | Type   | Default                 | Description                                                                                                            |
 |-------------------------------------|--------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | nameOverride                        | string | `""`                    | Set to override the chart name part of the release name                                                                |
 | fullnameOverride                    | string | `""`                    | Set to override the release name                                                                                       |
