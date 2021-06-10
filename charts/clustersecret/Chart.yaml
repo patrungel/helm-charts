@@ -1,6 +1,6 @@
 apiVersion: v2
 name: clustersecret
-version: 0.0.1
+version: 0.0.2
 kubeVersion: ">= 1.16.0"
 description: ClusterSecret Operator
 type: application
