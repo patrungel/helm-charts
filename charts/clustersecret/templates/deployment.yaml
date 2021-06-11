@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
 {{ template "clustersecret.defaultLabels" . }}
-{{- with .Values.podExtraLabels }}{{ toYaml . | indent 4 }}{{- end }}
+{{- with .Values.podExtraLabels }}{{ toYaml . | nindent 4 }}{{- end }}
 {{- with .Values.podAnnotations }}
   annotations:{{ toYaml . | nindent 4 }}{{- end }}
 spec:
@@ -18,9 +18,12 @@ spec:
     metadata:
       labels:
 {{ include "clustersecret.defaultPodLabels" . | indent 8 }}
+{{- with .Values.podExtraLabels }}{{ toYaml . | nindent 8 }}{{- end }}
+{{- with .Values.podAnnotations }}
+      annotations:{{ toYaml . | nindent 8 }}{{- end }}
     spec:
       containers:
-      - name: clustersecret
+      - name: {{ template "clustersecret.fullname" . }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command:
@@ -28,7 +31,7 @@ spec:
         args:
         - run
         - /src/handlers.py
-{{- with .Values.extraArgs }}{{ toYaml . | indent 8 }}{{- end }}
+{{- with .Values.extraArgs }}{{ toYaml . | nindent 8 }}{{- end }}
 {{- with .Values.extraVars }}
         env:
 {{- range $name, $value := . }}
@@ -54,7 +57,7 @@ spec:
 {{- end }}
 {{- with .Values.tolerations }}
       tolerations:
-{{ toYaml . | indent 8 }}
+{{ toYaml . | indent 6 }}
 {{- end }}
       serviceAccountName: {{ template "clustersecret.serviceAccountName" . }}
 {{- if .Values.priorityClassName }}

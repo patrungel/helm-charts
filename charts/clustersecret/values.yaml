@@ -38,7 +38,7 @@ extraArgs: []
 # -- Optional environment variables as key-value pairs
 # Example:
 # extraVars:
-# LANG: en_US.utf8
+#   LANG: en_US.utf8
 extraVars: {}
 
 # -- affinity spec for clustersecret deployment
