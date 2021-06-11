@@ -50,6 +50,14 @@ Default pod labels
 {{- end -}}
 
 {{/*
+Verification pod labels
+*/}}
+{{- define "clustersecret.verificationPodLabels" -}}
+{{- $labelApp := include "clustersecret.name" $ -}}
+{{- printf "app.kubernetes.io/name=%s,app.kubernetes.io/instance=%s" $labelApp .Release.Name -}}
+{{- end -}}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "clustersecret.serviceAccountName" -}}
