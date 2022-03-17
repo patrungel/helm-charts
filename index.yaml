@@ -2,6 +2,23 @@ apiVersion: v1
 entries:
   clustersecret:
   - apiVersion: v2
+    created: "2022-03-17T08:38:24.62699063Z"
+    description: ClusterSecret Operator
+    digest: d5058f59b868038ecc14f730c6e1497c6b19ccf76768a2f85a253f04b38d06fa
+    home: https://github.com/patrungel/clustersecret-helm
+    kubeVersion: '>= 1.16.0-0'
+    maintainers:
+    - email: patrungel@gmail.com
+      name: patrungel
+    name: clustersecret
+    sources:
+    - https://github.com/zakkg3/ClusterSecret
+    - https://github.com/patrungel/helm-charts
+    type: application
+    urls:
+    - https://github.com/patrungel/helm-charts/releases/download/clustersecret-0.1.0/clustersecret-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
     created: "2021-06-11T21:46:07.074753065Z"
     description: ClusterSecret Operator
     digest: 4083da1c0732521536c3ccfcb187025fef21c90b5dc2361730db2b7615c7155b
@@ -69,4 +86,4 @@ entries:
     urls:
     - https://github.com/patrungel/helm-charts/releases/download/clustersecret-0.0.1/clustersecret-0.0.1.tgz
     version: 0.0.1
-generated: "2021-06-11T21:46:07.07477137Z"
+generated: "2022-03-17T08:38:24.62701693Z"
