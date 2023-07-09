@@ -8,17 +8,17 @@ metadata:
 {{ template "clustersecret.defaultLabels" . }}
 rules:
 # Framework: knowing which other operators are running (i.e. peering).
-- apiGroups: [clustersecret.io]
+- apiGroups: [apiextensions.k8s.io]
   resources: [customresourcedefinitions]
-  verbs: [list, get, patch]
+  verbs: [watch, list, get, patch]
 # Framework: posting the events about the handlers progress/errors.
 - apiGroups: ["",events.k8s.io]
   resources: [events]
   verbs: [create]
-# Application: read-only access for watching cluster-wide.
+# Application: read-only access own custom resources for watching cluster-wide.
 - apiGroups: [clustersecret.io]
   resources: [clustersecrets]
-  verbs: [list, get, watch, patch]
+  verbs: [watch, list, get, patch]
 # Watch namespaces
 - apiGroups: [""]
   resources: [namespaces, namespaces/status]

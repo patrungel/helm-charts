@@ -1,8 +1,9 @@
 apiVersion: v2
 name: clustersecret
-version: 0.1.0
+version: 0.2.0
+appVersion: 0.0.9
 kubeVersion: ">= 1.16.0-0"
-description: ClusterSecret Operator
+description: ClusterSecret Operator provides inter-namespace (or cluster-wide) secrets
 type: application
 home: https://github.com/patrungel/clustersecret-helm
 sources:
