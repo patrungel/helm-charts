@@ -24,12 +24,13 @@ spec:
     spec:
       containers:
       - name: {{ template "clustersecret.fullname" . }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: {{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command:
         - kopf
         args:
         - run
+        - -A
         - /src/handlers.py
 {{- with .Values.extraArgs }}{{ toYaml . | nindent 8 }}{{- end }}
 {{- with .Values.extraVars }}

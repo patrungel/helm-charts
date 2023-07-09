@@ -24,8 +24,8 @@ rbac:
 image:
   # -- Image repository to use
   repository: flag5/clustersecret
-  # -- Image tag to use
-  tag: 0.0.6
+  # -- Image tag to use (defaults to appVersion of the chart)
+  tag:
   # -- Image pullPolicy to use
   pullPolicy: IfNotPresent
 
